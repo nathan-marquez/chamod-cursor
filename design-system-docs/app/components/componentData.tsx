@@ -15,39 +15,64 @@ export interface ComponentDocProps {
 export const components: ComponentDocProps[] = [
   {
     name: "Button Component",
-    description: "A customizable button component.",
+    description: "A customizable button component with multiple variants and sizes.",
     component: (
-      <div className="flex gap-4">
-        <Button label="Primary Button" variant="primary" />
-        <Button label="Danger Button" variant="danger" />
-        <Button label="Filled Button" variant="filled" />
+      <div className="space-y-4">
+        <div className="flex gap-4">
+          <Button label="Primary" variant="primary" />
+          <Button label="Danger" variant="danger" />
+          <Button label="Filled" variant="filled" />
+        </div>
+        <div className="flex gap-4 items-center">
+          <Button label="Small" variant="primary" size="sm" />
+          <Button label="Medium" variant="primary" size="md" />
+          <Button label="Large" variant="primary" size="lg" />
+        </div>
+        <div className="flex gap-4">
+          <Button label="Disabled" variant="primary" disabled />
+        </div>
       </div>
     ),
     exampleMarkup: `
-<Button label="Primary Button" variant="primary" />
-<Button label="Danger Button" variant="danger" />
-<Button label="Filled Button" variant="filled" />`,
+<Button label="Primary" variant="primary" />
+<Button label="Danger" variant="danger" />
+<Button label="Filled" variant="filled" />
+<Button label="Small" variant="primary" size="sm" />
+<Button label="Disabled" variant="primary" disabled />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the button." },
       { name: "variant", type: "'primary' | 'danger' | 'filled'", description: "The style variant of the button.", default: "'primary'" },
+      { name: "size", type: "'sm' | 'md' | 'lg'", description: "The size of the button.", default: "'md'" },
+      { name: "disabled", type: "boolean", description: "Whether the button is disabled.", default: "false" },
     ],
   },
   {
     name: "Callout Component",
-    description: "A component to display important messages.",
+    description: "A component to display important messages with multiple variants and sizes.",
     component: (
-      <div className="flex flex-col gap-4">
-        <Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
-        <Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />
+      <div className="space-y-4">
+        <div className="flex flex-col gap-3">
+          <Callout message="Default callout message" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
+          <Callout message="Primary callout message" icon={<span role="img" aria-label="info">💡</span>} variant="primary" />
+          <Callout message="Danger callout message" icon={<span role="img" aria-label="warning">⚠️</span>} variant="danger" />
+          <Callout message="Filled callout message" icon={<span role="img" aria-label="check">✓</span>} variant="filled" />
+        </div>
+        <div className="flex flex-col gap-3">
+          <Callout message="Small callout" icon={<span role="img" aria-label="info">ℹ️</span>} variant="primary" size="sm" />
+          <Callout message="Large callout" icon={<span role="img" aria-label="info">ℹ️</span>} variant="primary" size="lg" />
+        </div>
       </div>
     ),
     exampleMarkup: `
-<Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
-<Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />`,
+<Callout message="Default callout message" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
+<Callout message="Primary callout message" icon={<span role="img" aria-label="info">💡</span>} variant="primary" />
+<Callout message="Danger callout message" icon={<span role="img" aria-label="warning">⚠️</span>} variant="danger" />
+<Callout message="Filled callout message" icon={<span role="img" aria-label="check">✓</span>} variant="filled" />`,
     props: [
       { name: "message", type: "string", description: "The content of the callout message." },
       { name: "icon", type: "React.ReactNode", description: "An icon to display next to the message.", default: "undefined" },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the callout.", default: "'default'" },
+      { name: "variant", type: "'default' | 'primary' | 'danger' | 'filled'", description: "The style variant of the callout.", default: "'default'" },
+      { name: "size", type: "'sm' | 'md' | 'lg'", description: "The size of the callout.", default: "'md'" },
     ],
   },
   {
@@ -66,19 +91,32 @@ export const components: ComponentDocProps[] = [
   },
   {
     name: "Tag Component",
-    description: "A small, customizable label.",
+    description: "A small, customizable label with multiple variants and sizes.",
     component: (
-      <div className="flex gap-2">
-        <Tag label="tags" variant="default" />
-        <Tag label="danger" variant="danger" />
+      <div className="space-y-4">
+        <div className="flex flex-wrap gap-2">
+          <Tag label="Default" variant="default" />
+          <Tag label="Primary" variant="primary" />
+          <Tag label="Danger" variant="danger" />
+          <Tag label="Filled" variant="filled" />
+        </div>
+        <div className="flex flex-wrap gap-2 items-center">
+          <Tag label="Small" variant="primary" size="sm" />
+          <Tag label="Medium" variant="primary" size="md" />
+          <Tag label="Large" variant="primary" size="lg" />
+        </div>
       </div>
     ),
     exampleMarkup: `
-<Tag label="tags" variant="default" />
-<Tag label="danger" variant="danger" />`,
+<Tag label="Default" variant="default" />
+<Tag label="Primary" variant="primary" />
+<Tag label="Danger" variant="danger" />
+<Tag label="Filled" variant="filled" />
+<Tag label="Small" variant="primary" size="sm" />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the tag." },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the tag.", default: "'default'" },
+      { name: "variant", type: "'default' | 'primary' | 'danger' | 'filled'", description: "The style variant of the tag.", default: "'default'" },
+      { name: "size", type: "'sm' | 'md' | 'lg'", description: "The size of the tag.", default: "'md'" },
     ],
   },
 ];
