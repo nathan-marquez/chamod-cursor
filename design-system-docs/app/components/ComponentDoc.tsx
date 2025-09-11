@@ -117,10 +117,24 @@ const parseSingleJSX = (jsxString: string, key: number): React.ReactNode => {
 
     const isSelfClosing = jsxString.endsWith("/>");
 
+    // Ensure required props are present
+    if (componentName === 'Button' && !props.label) {
+      props.label = 'Button';
+    }
+    if (componentName === 'Tag' && !props.label) {
+      props.label = 'Tag';
+    }
+    if (componentName === 'Callout' && !props.message) {
+      props.message = 'Callout message';
+    }
+    if (componentName === 'Card' && !props.title) {
+      props.title = 'Card title';
+    }
+
     if (isSelfClosing) {
-      return <Component key={key} {...props} />;
+      return <Component key={key} {...(props as any)} />;
     } else {
-      return <Component key={key} {...props} />;
+      return <Component key={key} {...(props as any)} />;
     }
   } catch (error) {
     console.error("Error parsing single JSX:", error);
