@@ -3,18 +3,22 @@ import React from 'react';
 interface CalloutProps {
   message: string;
   icon?: React.ReactNode;
-  variant?: 'default' | 'danger';
+  variant?: 'default' | 'primary' | 'danger';
 }
 
 const Callout: React.FC<CalloutProps> = ({ message, icon, variant = 'default' }) => {
   const variantStyles = {
     default: {
-      container: 'bg-[#3C3C4C] text-white border border-[#4E4E5B] rounded-lg',
-      icon: 'text-[#8C8C96] bg-white rounded-full p-0.5 border border-transparent',
+      container: 'bg-slate-700 text-slate-100 border border-slate-600 rounded-lg',
+      icon: 'text-slate-300',
+    },
+    primary: {
+      container: 'bg-blue-600 text-white border border-blue-500 rounded-lg',
+      icon: 'text-blue-200',
     },
     danger: {
-      container: 'bg-[#C62B2B] text-white border border-[#F25555] rounded-lg',
-      icon: 'text-yellow-300',
+      container: 'bg-red-600 text-white border border-red-500 rounded-lg',
+      icon: 'text-red-200',
     },
   };
 
