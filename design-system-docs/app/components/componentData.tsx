@@ -15,9 +15,9 @@ export interface ComponentDocProps {
 export const components: ComponentDocProps[] = [
   {
     name: "Button Component",
-    description: "A customizable button component.",
+    description: "A modern, interactive button component with gradient backgrounds and smooth animations.",
     component: (
-      <div className="flex gap-4">
+      <div className="flex gap-4 flex-wrap">
         <Button label="Primary Button" variant="primary" />
         <Button label="Danger Button" variant="danger" />
         <Button label="Filled Button" variant="filled" />
@@ -29,12 +29,12 @@ export const components: ComponentDocProps[] = [
 <Button label="Filled Button" variant="filled" />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the button." },
-      { name: "variant", type: "'primary' | 'danger' | 'filled'", description: "The style variant of the button.", default: "'primary'" },
+      { name: "variant", type: "'primary' | 'danger' | 'filled'", description: "The style variant of the button with gradient backgrounds and hover effects.", default: "'primary'" },
     ],
   },
   {
     name: "Callout Component",
-    description: "A component to display important messages.",
+    description: "An elegant callout component with gradient backgrounds and enhanced visual hierarchy for important messages.",
     component: (
       <div className="flex flex-col gap-4">
         <Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
@@ -46,8 +46,8 @@ export const components: ComponentDocProps[] = [
 <Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />`,
     props: [
       { name: "message", type: "string", description: "The content of the callout message." },
-      { name: "icon", type: "React.ReactNode", description: "An icon to display next to the message.", default: "undefined" },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the callout.", default: "'default'" },
+      { name: "icon", type: "React.ReactNode", description: "An icon to display next to the message with enhanced styling.", default: "undefined" },
+      { name: "variant", type: "'default' | 'danger'", description: "The style variant with gradient backgrounds and improved visual appeal.", default: "'default'" },
     ],
   },
   {
@@ -66,19 +66,19 @@ export const components: ComponentDocProps[] = [
   },
   {
     name: "Tag Component",
-    description: "A small, customizable label.",
+    description: "A refined tag component with gradient backgrounds and subtle animations for labeling and categorization.",
     component: (
-      <div className="flex gap-2">
-        <Tag label="tags" variant="default" />
+      <div className="flex gap-2 flex-wrap">
+        <Tag label="default" variant="default" />
         <Tag label="danger" variant="danger" />
       </div>
     ),
     exampleMarkup: `
-<Tag label="tags" variant="default" />
+<Tag label="default" variant="default" />
 <Tag label="danger" variant="danger" />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the tag." },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the tag.", default: "'default'" },
+      { name: "variant", type: "'default' | 'danger'", description: "The style variant with enhanced gradients and hover effects.", default: "'default'" },
     ],
   },
 ];
