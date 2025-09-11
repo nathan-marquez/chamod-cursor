@@ -15,21 +15,38 @@ export interface ComponentDocProps {
 export const components: ComponentDocProps[] = [
   {
     name: "Button Component",
-    description: "A customizable button component.",
+    description: "A customizable button component with enhanced styling and multiple variants.",
     component: (
-      <div className="flex gap-4">
-        <Button label="Primary Button" variant="primary" />
-        <Button label="Danger Button" variant="danger" />
-        <Button label="Filled Button" variant="filled" />
+      <div className="space-y-4">
+        <div className="flex gap-4">
+          <Button label="Primary" variant="primary" />
+          <Button label="Danger" variant="danger" />
+          <Button label="Filled" variant="filled" />
+        </div>
+        <div className="flex gap-4 items-center">
+          <Button label="Small" variant="primary" size="sm" />
+          <Button label="Medium" variant="primary" size="md" />
+          <Button label="Large" variant="primary" size="lg" />
+        </div>
+        <div className="flex gap-4">
+          <Button label="Enabled" variant="primary" />
+          <Button label="Disabled" variant="primary" disabled={true} />
+        </div>
       </div>
     ),
     exampleMarkup: `
 <Button label="Primary Button" variant="primary" />
 <Button label="Danger Button" variant="danger" />
-<Button label="Filled Button" variant="filled" />`,
+<Button label="Filled Button" variant="filled" />
+<Button label="Small Button" variant="primary" size="sm" />
+<Button label="Large Button" variant="primary" size="lg" />
+<Button label="Disabled Button" variant="primary" disabled={true} />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the button." },
       { name: "variant", type: "'primary' | 'danger' | 'filled'", description: "The style variant of the button.", default: "'primary'" },
+      { name: "size", type: "'sm' | 'md' | 'lg'", description: "The size of the button.", default: "'md'" },
+      { name: "disabled", type: "boolean", description: "Whether the button is disabled.", default: "false" },
+      { name: "onClick", type: "() => void", description: "Click handler function.", default: "undefined" },
     ],
   },
   {
