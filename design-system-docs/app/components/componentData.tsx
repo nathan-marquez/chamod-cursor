@@ -15,22 +15,23 @@ export interface ComponentDocProps {
 export const components: ComponentDocProps[] = [
   {
     name: "Button Component",
-    description: "A customizable button component with multiple variants and sizes.",
+    description: "A customizable button component with enhanced styling and accessibility features. Updated from Figma designs with gradient backgrounds and improved hover effects.",
     component: (
-      <div className="space-y-4">
+      <div className="space-y-6">
         <div className="flex gap-4 items-center">
           <Button label="Primary" variant="primary" />
           <Button label="Danger" variant="danger" />
           <Button label="Filled" variant="filled" />
         </div>
         <div className="flex gap-4 items-center">
-          <Button label="Small" variant="primary" size="small" />
-          <Button label="Medium" variant="primary" size="medium" />
-          <Button label="Large" variant="primary" size="large" />
+          <Button label="Small" variant="primary" size="sm" />
+          <Button label="Medium" variant="primary" size="md" />
+          <Button label="Large" variant="primary" size="lg" />
         </div>
         <div className="flex gap-4 items-center">
-          <Button label="Disabled" variant="primary" disabled={true} />
-          <Button label="Disabled Danger" variant="danger" disabled={true} />
+          <Button label="Enabled" variant="primary" />
+          <Button label="Disabled" variant="primary" disabled />
+          <Button label="Disabled Danger" variant="danger" disabled />
         </div>
       </div>
     ),
@@ -38,15 +39,16 @@ export const components: ComponentDocProps[] = [
 <Button label="Primary" variant="primary" />
 <Button label="Danger" variant="danger" />
 <Button label="Filled" variant="filled" />
-<Button label="Small" variant="primary" size="small" />
-<Button label="Medium" variant="primary" size="medium" />
-<Button label="Large" variant="primary" size="large" />
-<Button label="Disabled" variant="primary" disabled={true} />`,
+<Button label="Small" variant="primary" size="sm" />
+<Button label="Medium" variant="primary" size="md" />
+<Button label="Large" variant="primary" size="lg" />
+<Button label="Disabled" variant="primary" disabled />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the button." },
       { name: "variant", type: "'primary' | 'danger' | 'filled'", description: "The style variant of the button.", default: "'primary'" },
-      { name: "size", type: "'small' | 'medium' | 'large'", description: "The size of the button.", default: "'medium'" },
+      { name: "size", type: "'sm' | 'md' | 'lg'", description: "The size of the button.", default: "'md'" },
       { name: "disabled", type: "boolean", description: "Whether the button is disabled.", default: "false" },
+      { name: "onClick", type: "() => void", description: "Function called when the button is clicked.", default: "undefined" },
     ],
   },
   {
