@@ -6,6 +6,7 @@ import Button from "./Button";
 import Callout from "./Callout";
 import Card from "./Card";
 import Tag from "./Tag";
+import FigmaComponentMappings from "./FigmaComponents";
 
 interface ComponentDocProps {
   name: string;
@@ -26,6 +27,7 @@ const componentRegistry = {
   Callout,
   Card,
   Tag,
+  FigmaComponentMappings,
 };
 
 // Safe JSX parser that creates React elements from string
