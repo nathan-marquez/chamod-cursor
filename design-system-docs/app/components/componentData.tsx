@@ -23,8 +23,7 @@ export const components: ComponentDocProps[] = [
         <Button label="Filled Button" variant="filled" />
       </div>
     ),
-    exampleMarkup: `
-<Button label="Primary Button" variant="primary" />
+    exampleMarkup: `<Button label="Primary Button" variant="primary" />
 <Button label="Danger Button" variant="danger" />
 <Button label="Filled Button" variant="filled" />`,
     props: [
@@ -54,11 +53,11 @@ export const components: ComponentDocProps[] = [
     name: "Card Component",
     description: "A flexible container for grouping related content.",
     component: (
-      <Card title="Header in a card">
-        <p>Body text</p>
+      <Card title="Sample Card">
+        <p>This is the card content area where you can place any React components or text.</p>
       </Card>
     ),
-    exampleMarkup: `<Card title="Header in a card">\n  <p>Body text</p>\n</Card>`,
+    exampleMarkup: `<Card title="Sample Card">\n  <p>This is the card content area where you can place any React components or text.</p>\n</Card>`,
     props: [
       { name: "title", type: "string", description: "The title displayed at the top of the card." },
       { name: "children", type: "React.ReactNode", description: "The content rendered inside the card." },
