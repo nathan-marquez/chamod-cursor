@@ -2,16 +2,17 @@ import React from 'react';
 
 interface TagProps {
   label: string;
-  variant?: 'default' | 'danger';
+  variant?: 'default' | 'danger' | 'primary';
 }
 
 const Tag: React.FC<TagProps> = ({ label, variant = 'default' }) => {
   const variantStyles = {
-    default: 'bg-black text-white',
-    danger: 'bg-red-600 text-white',
+    default: 'bg-gray-800 text-white hover:bg-gray-700',
+    danger: 'bg-red-600 text-white hover:bg-red-700',
+    primary: 'bg-blue-600 text-white hover:bg-blue-700',
   };
 
-  const className = `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${variantStyles[variant!]}`;
+  const className = `inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold transition-colors duration-200 ${variantStyles[variant!]}`;
 
   return (
     <span className={className}>

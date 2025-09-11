@@ -93,10 +93,21 @@ const parseSingleJSX = (jsxString: string, key: number): React.ReactNode => {
     if (stringProps) {
       stringProps.forEach((prop) => {
         const [, name, value] = prop.match(/(\w+)="([^"]*)"/) || [];
-        if (name && value) {
+        if (name && value !== undefined) {
           props[name] = value;
         }
       });
+    }
+
+    // Ensure required props are provided with default values if missing
+    if (componentName === 'Button' && !props.label) {
+      props.label = 'Button';
+    }
+    if (componentName === 'Tag' && !props.label) {
+      props.label = 'Tag';
+    }
+    if (componentName === 'Callout' && !props.message) {
+      props.message = 'Callout message';
     }
 
     // Extract boolean props
@@ -118,9 +129,9 @@ const parseSingleJSX = (jsxString: string, key: number): React.ReactNode => {
     const isSelfClosing = jsxString.endsWith("/>");
 
     if (isSelfClosing) {
-      return <Component key={key} {...props} />;
+      return <Component key={key} {...(props as any)} />;
     } else {
-      return <Component key={key} {...props} />;
+      return <Component key={key} {...(props as any)} />;
     }
   } catch (error) {
     console.error("Error parsing single JSX:", error);
