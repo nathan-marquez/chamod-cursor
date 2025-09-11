@@ -88,23 +88,28 @@ const parseSingleJSX = (jsxString: string, key: number): React.ReactNode => {
 
     const props: Record<string, any> = {};
 
-    // Extract string props
+    // Extract string props (handles both quoted and unquoted values)
     const stringProps = jsxString.match(/(\w+)="([^"]*)"/g);
     if (stringProps) {
       stringProps.forEach((prop) => {
         const [, name, value] = prop.match(/(\w+)="([^"]*)"/) || [];
-        if (name && value) {
+        if (name && value !== undefined) {
           props[name] = value;
         }
       });
     }
 
-    // Extract boolean props
-    const booleanProps = jsxString.match(/(\w+)(?=\s|>)/g);
-    if (booleanProps) {
-      booleanProps.forEach((prop) => {
-        if (prop !== componentName && !props[prop]) {
-          props[prop] = true;
+    // Extract boolean props (standalone attributes)
+    const allAttributes = jsxString.match(/\s(\w+)(?=[\s/>])/g);
+    if (allAttributes) {
+      allAttributes.forEach((attr) => {
+        const propName = attr.trim();
+        if (propName !== componentName && !props.hasOwnProperty(propName)) {
+          // Check if this is a boolean prop (not followed by =)
+          const fullMatch = jsxString.match(new RegExp(`\\s${propName}(?![="])`));
+          if (fullMatch) {
+            props[propName] = true;
+          }
         }
       });
     }
@@ -115,12 +120,26 @@ const parseSingleJSX = (jsxString: string, key: number): React.ReactNode => {
       props.children = childrenMatch[1].trim();
     }
 
+    // Add default props for required properties based on component type
+    if (componentName === 'Button' && !props.label) {
+      props.label = 'Button';
+    }
+    if (componentName === 'Tag' && !props.label) {
+      props.label = 'Tag';
+    }
+    if (componentName === 'Callout' && !props.message) {
+      props.message = 'Callout message';
+    }
+    if (componentName === 'Card' && !props.title) {
+      props.title = 'Card title';
+    }
+
     const isSelfClosing = jsxString.endsWith("/>");
 
     if (isSelfClosing) {
-      return <Component key={key} {...props} />;
+      return <Component key={key} {...(props as any)} />;
     } else {
-      return <Component key={key} {...props} />;
+      return <Component key={key} {...(props as any)} />;
     }
   } catch (error) {
     console.error("Error parsing single JSX:", error);
