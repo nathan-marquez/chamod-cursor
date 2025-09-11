@@ -9,12 +9,12 @@ interface CalloutProps {
 const Callout: React.FC<CalloutProps> = ({ message, icon, variant = 'default' }) => {
   const variantStyles = {
     default: {
-      container: 'bg-[#3C3C4C] text-white border border-[#4E4E5B] rounded-lg',
-      icon: 'text-[#8C8C96] bg-white rounded-full p-0.5 border border-transparent',
+      container: 'bg-slate-700 text-white border border-slate-600 rounded-lg shadow-sm',
+      icon: 'text-slate-400 bg-white rounded-full p-0.5 border border-transparent',
     },
     danger: {
-      container: 'bg-[#C62B2B] text-white border border-[#F25555] rounded-lg',
-      icon: 'text-yellow-300',
+      container: 'bg-red-600 text-white border border-red-500 rounded-lg shadow-sm',
+      icon: 'text-yellow-200',
     },
   };
 
