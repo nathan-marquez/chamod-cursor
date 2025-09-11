@@ -1,0 +1,40 @@
+{
+  "componentMappings": {
+    "Button": {
+      "variants": {
+        "primary": {
+          "figmaKey": "361792417486066fd0ea12bbcec92487e0dbb41b",
+          "figmaName": "Property 1=Primary",
+          "lastSynced": "2025-09-11T00:00:00Z"
+        },
+        "danger": {
+          "figmaKey": "291fb2a90eb1fcedfe57ea65baa3135f81c56518",
+          "figmaName": "Property 1=Danger",
+          "lastSynced": "2025-09-11T00:00:00Z"
+        },
+        "filled": {
+          "figmaKey": "984591f1eec68eb2b8edfa981b24871b0084edb8",
+          "figmaName": "Property 1=Filled",
+          "lastSynced": "2025-09-11T00:00:00Z"
+        }
+      }
+    }
+  },
+  "syncHistory": [
+    {
+      "timestamp": "2025-09-11T00:00:00Z",
+      "componentsUpdated": [
+        "Button (primary variant)",
+        "Button (danger variant)",
+        "Button (filled variant)"
+      ],
+      "changes": [
+        "Enhanced button styling with modern shadows and transitions",
+        "Added size variants (sm, md, lg)",
+        "Added disabled state support",
+        "Added onClick handler support",
+        "Improved accessibility with proper focus states"
+      ]
+    }
+  ]
+}
