@@ -15,7 +15,7 @@ export interface ComponentDocProps {
 export const components: ComponentDocProps[] = [
   {
     name: "Button Component",
-    description: "A customizable button component.",
+    description: "A modern button component with gradient backgrounds, hover effects, and smooth transitions.",
     component: (
       <div className="flex gap-4">
         <Button label="Primary Button" variant="primary" />
@@ -34,20 +34,22 @@ export const components: ComponentDocProps[] = [
   },
   {
     name: "Callout Component",
-    description: "A component to display important messages.",
+    description: "A component to display important messages with enhanced styling and gradient backgrounds.",
     component: (
       <div className="flex flex-col gap-4">
         <Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
-        <Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />
+        <Callout message="Important primary information" icon={<span role="img" aria-label="info">💡</span>} variant="primary" />
+        <Callout message="Danger! Please pay attention" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />
       </div>
     ),
     exampleMarkup: `
 <Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
-<Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />`,
+<Callout message="Important primary information" icon={<span role="img" aria-label="info">💡</span>} variant="primary" />
+<Callout message="Danger! Please pay attention" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />`,
     props: [
       { name: "message", type: "string", description: "The content of the callout message." },
       { name: "icon", type: "React.ReactNode", description: "An icon to display next to the message.", default: "undefined" },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the callout.", default: "'default'" },
+      { name: "variant", type: "'default' | 'danger' | 'primary'", description: "The style variant of the callout.", default: "'default'" },
     ],
   },
   {
@@ -66,19 +68,21 @@ export const components: ComponentDocProps[] = [
   },
   {
     name: "Tag Component",
-    description: "A small, customizable label.",
+    description: "A small, customizable label with gradient styling and enhanced visual appeal.",
     component: (
       <div className="flex gap-2">
-        <Tag label="tags" variant="default" />
+        <Tag label="default" variant="default" />
+        <Tag label="primary" variant="primary" />
         <Tag label="danger" variant="danger" />
       </div>
     ),
     exampleMarkup: `
-<Tag label="tags" variant="default" />
+<Tag label="default" variant="default" />
+<Tag label="primary" variant="primary" />
 <Tag label="danger" variant="danger" />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the tag." },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the tag.", default: "'default'" },
+      { name: "variant", type: "'default' | 'danger' | 'primary'", description: "The style variant of the tag.", default: "'default'" },
     ],
   },
 ];
