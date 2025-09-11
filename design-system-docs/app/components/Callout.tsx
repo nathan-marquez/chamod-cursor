@@ -3,27 +3,35 @@ import React from 'react';
 interface CalloutProps {
   message: string;
   icon?: React.ReactNode;
-  variant?: 'default' | 'danger';
+  variant?: 'default' | 'primary' | 'danger' | 'filled';
 }
 
 const Callout: React.FC<CalloutProps> = ({ message, icon, variant = 'default' }) => {
   const variantStyles = {
     default: {
-      container: 'bg-[#3C3C4C] text-white border border-[#4E4E5B] rounded-lg',
-      icon: 'text-[#8C8C96] bg-white rounded-full p-0.5 border border-transparent',
+      container: 'bg-gray-50 text-gray-800 border border-gray-200 rounded-lg',
+      icon: 'text-gray-600',
+    },
+    primary: {
+      container: 'bg-blue-50 text-blue-800 border border-blue-200 rounded-lg',
+      icon: 'text-blue-600',
     },
     danger: {
-      container: 'bg-[#C62B2B] text-white border border-[#F25555] rounded-lg',
-      icon: 'text-yellow-300',
+      container: 'bg-red-50 text-red-800 border border-red-200 rounded-lg',
+      icon: 'text-red-600',
+    },
+    filled: {
+      container: 'bg-gray-900 text-white border border-gray-900 rounded-lg',
+      icon: 'text-gray-300',
     },
   };
 
   const currentStyles = variantStyles[variant];
 
   return (
-    <div className={`flex items-center p-4 rounded-md shadow-sm ${currentStyles.container}`}>
-      {icon && <div className={`mr-3 text-xl ${currentStyles.icon}`}>{icon}</div>}
-      <p>{message}</p>
+    <div className={`flex items-start p-4 shadow-sm transition-colors duration-200 ${currentStyles.container}`}>
+      {icon && <div className={`mr-3 text-lg flex-shrink-0 mt-0.5 ${currentStyles.icon}`}>{icon}</div>}
+      <p className="text-sm leading-relaxed">{message}</p>
     </div>
   );
 };
