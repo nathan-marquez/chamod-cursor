@@ -6,12 +6,12 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ label, variant = 'primary' }) => {
-  const baseStyle = 'px-4 py-2 rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-opacity-75';
+  const baseStyle = 'px-6 py-3 rounded-lg font-semibold transition-all duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-opacity-75 transform hover:scale-105 active:scale-95 shadow-lg';
 
   const variantStyles = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500',
-    danger: 'bg-red-600 text-white hover:bg-red-700 focus:ring-red-500',
-    filled: 'bg-gray-700 text-white hover:bg-gray-600 focus:ring-gray-500',
+    primary: 'bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 focus:ring-blue-500 shadow-blue-200/50',
+    danger: 'bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 focus:ring-red-500 shadow-red-200/50',
+    filled: 'bg-gradient-to-r from-slate-700 to-slate-800 text-white hover:from-slate-800 hover:to-slate-900 focus:ring-slate-500 shadow-slate-200/50',
   };
 
   const className = `${baseStyle} ${variantStyles[variant!]}`;
