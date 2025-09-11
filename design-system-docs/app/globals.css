@@ -11,6 +11,8 @@
   --muted-foreground: #94a3b8;
   --accent: #1e40af;
   --accent-foreground: #ffffff;
+  --danger: #dc2626;
+  --danger-foreground: #ffffff;
   --border: #334155;
   --input: #1e293b;
   --ring: #3b82f6;
@@ -27,6 +29,8 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-danger: var(--danger);
+  --color-danger-foreground: var(--danger-foreground);
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
