@@ -69,16 +69,18 @@ export const components: ComponentDocProps[] = [
     description: "A small, customizable label.",
     component: (
       <div className="flex gap-2">
-        <Tag label="tags" variant="default" />
+        <Tag label="default" variant="default" />
+        <Tag label="primary" variant="primary" />
         <Tag label="danger" variant="danger" />
       </div>
     ),
     exampleMarkup: `
-<Tag label="tags" variant="default" />
+<Tag label="default" variant="default" />
+<Tag label="primary" variant="primary" />
 <Tag label="danger" variant="danger" />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the tag." },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the tag.", default: "'default'" },
+      { name: "variant", type: "'default' | 'danger' | 'primary'", description: "The style variant of the tag.", default: "'default'" },
     ],
   },
 ];
