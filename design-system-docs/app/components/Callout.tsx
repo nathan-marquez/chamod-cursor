@@ -3,7 +3,7 @@ import React from 'react';
 interface CalloutProps {
   message: string;
   icon?: React.ReactNode;
-  variant?: 'default' | 'danger';
+  variant?: 'default' | 'danger' | 'primary';
 }
 
 const Callout: React.FC<CalloutProps> = ({ message, icon, variant = 'default' }) => {
@@ -15,6 +15,10 @@ const Callout: React.FC<CalloutProps> = ({ message, icon, variant = 'default' })
     danger: {
       container: 'bg-[#C62B2B] text-white border border-[#F25555] rounded-lg',
       icon: 'text-yellow-300',
+    },
+    primary: {
+      container: 'bg-blue-600 text-white border border-blue-700 rounded-lg',
+      icon: 'text-blue-200',
     },
   };
 
