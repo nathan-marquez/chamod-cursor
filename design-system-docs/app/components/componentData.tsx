@@ -15,9 +15,9 @@ export interface ComponentDocProps {
 export const components: ComponentDocProps[] = [
   {
     name: "Button Component",
-    description: "A customizable button component.",
+    description: "A modern, interactive button component with gradient backgrounds and smooth animations. Features hover effects, focus states, and responsive scaling for enhanced user experience.",
     component: (
-      <div className="flex gap-4">
+      <div className="flex flex-wrap gap-4 items-center">
         <Button label="Primary Button" variant="primary" />
         <Button label="Danger Button" variant="danger" />
         <Button label="Filled Button" variant="filled" />
@@ -29,7 +29,7 @@ export const components: ComponentDocProps[] = [
 <Button label="Filled Button" variant="filled" />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the button." },
-      { name: "variant", type: "'primary' | 'danger' | 'filled'", description: "The style variant of the button.", default: "'primary'" },
+      { name: "variant", type: "'primary' | 'danger' | 'filled'", description: "The style variant of the button with gradient backgrounds and enhanced hover effects.", default: "'primary'" },
     ],
   },
   {
