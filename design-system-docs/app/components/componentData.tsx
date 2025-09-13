@@ -17,7 +17,7 @@ export const components: ComponentDocProps[] = [
     name: "Button Component",
     description: "A customizable button component.",
     component: (
-      <div className="flex gap-4">
+      <div className="flex flex-wrap gap-4">
         <Button label="Primary Button" variant="primary" />
         <Button label="Danger Button" variant="danger" />
         <Button label="Filled Button" variant="filled" />
@@ -37,17 +37,21 @@ export const components: ComponentDocProps[] = [
     description: "A component to display important messages.",
     component: (
       <div className="flex flex-col gap-4">
-        <Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
-        <Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />
+        <Callout message="Default callout message" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
+        <Callout message="Primary callout message" icon={<span role="img" aria-label="info">💡</span>} variant="primary" />
+        <Callout message="Danger callout message" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />
+        <Callout message="Filled callout message" icon={<span role="img" aria-label="info">📝</span>} variant="filled" />
       </div>
     ),
     exampleMarkup: `
-<Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
-<Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />`,
+<Callout message="Default callout message" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
+<Callout message="Primary callout message" icon={<span role="img" aria-label="info">💡</span>} variant="primary" />
+<Callout message="Danger callout message" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />
+<Callout message="Filled callout message" icon={<span role="img" aria-label="info">📝</span>} variant="filled" />`,
     props: [
       { name: "message", type: "string", description: "The content of the callout message." },
       { name: "icon", type: "React.ReactNode", description: "An icon to display next to the message.", default: "undefined" },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the callout.", default: "'default'" },
+      { name: "variant", type: "'default' | 'primary' | 'danger' | 'filled'", description: "The style variant of the callout.", default: "'default'" },
     ],
   },
   {
@@ -68,17 +72,21 @@ export const components: ComponentDocProps[] = [
     name: "Tag Component",
     description: "A small, customizable label.",
     component: (
-      <div className="flex gap-2">
-        <Tag label="tags" variant="default" />
+      <div className="flex flex-wrap gap-2">
+        <Tag label="default" variant="default" />
+        <Tag label="primary" variant="primary" />
         <Tag label="danger" variant="danger" />
+        <Tag label="filled" variant="filled" />
       </div>
     ),
     exampleMarkup: `
-<Tag label="tags" variant="default" />
-<Tag label="danger" variant="danger" />`,
+<Tag label="default" variant="default" />
+<Tag label="primary" variant="primary" />
+<Tag label="danger" variant="danger" />
+<Tag label="filled" variant="filled" />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the tag." },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the tag.", default: "'default'" },
+      { name: "variant", type: "'default' | 'primary' | 'danger' | 'filled'", description: "The style variant of the tag.", default: "'default'" },
     ],
   },
 ];
