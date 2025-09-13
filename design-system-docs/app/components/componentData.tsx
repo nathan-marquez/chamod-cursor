@@ -28,7 +28,7 @@ export const components: ComponentDocProps[] = [
 <Button label="Danger Button" variant="danger" />
 <Button label="Filled Button" variant="filled" />`,
     props: [
-      { name: "label", type: "string", description: "The text displayed on the button." },
+      { name: "label", type: "string", description: "The text displayed on the button.", default: "'Button'" },
       { name: "variant", type: "'primary' | 'danger' | 'filled'", description: "The style variant of the button.", default: "'primary'" },
     ],
   },
@@ -45,7 +45,7 @@ export const components: ComponentDocProps[] = [
 <Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
 <Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />`,
     props: [
-      { name: "message", type: "string", description: "The content of the callout message." },
+      { name: "message", type: "string", description: "The content of the callout message.", default: "'Callout message'" },
       { name: "icon", type: "React.ReactNode", description: "An icon to display next to the message.", default: "undefined" },
       { name: "variant", type: "'default' | 'danger'", description: "The style variant of the callout.", default: "'default'" },
     ],
@@ -60,8 +60,8 @@ export const components: ComponentDocProps[] = [
     ),
     exampleMarkup: `<Card title="Header in a card">\n  <p>Body text</p>\n</Card>`,
     props: [
-      { name: "title", type: "string", description: "The title displayed at the top of the card." },
-      { name: "children", type: "React.ReactNode", description: "The content rendered inside the card." },
+      { name: "title", type: "string", description: "The title displayed at the top of the card.", default: "'Card Title'" },
+      { name: "children", type: "React.ReactNode", description: "The content rendered inside the card.", default: "'Card content'" },
     ],
   },
   {
@@ -77,7 +77,7 @@ export const components: ComponentDocProps[] = [
 <Tag label="tags" variant="default" />
 <Tag label="danger" variant="danger" />`,
     props: [
-      { name: "label", type: "string", description: "The text displayed on the tag." },
+      { name: "label", type: "string", description: "The text displayed on the tag.", default: "'Tag'" },
       { name: "variant", type: "'default' | 'danger'", description: "The style variant of the tag.", default: "'default'" },
     ],
   },

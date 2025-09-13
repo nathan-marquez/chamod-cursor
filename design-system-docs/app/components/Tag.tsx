@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface TagProps {
-  label: string;
+  label?: string;
   variant?: 'default' | 'danger';
 }
 
@@ -11,11 +11,11 @@ const Tag: React.FC<TagProps> = ({ label, variant = 'default' }) => {
     danger: 'bg-red-600 text-white',
   };
 
-  const className = `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${variantStyles[variant!]}`;
+  const className = `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${variantStyles[variant]}`;
 
   return (
     <span className={className}>
-      {label}
+      {label || "Tag"}
     </span>
   );
 };

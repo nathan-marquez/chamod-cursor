@@ -92,9 +92,12 @@ const parseSingleJSX = (jsxString: string, key: number): React.ReactNode => {
     const stringProps = jsxString.match(/(\w+)="([^"]*)"/g);
     if (stringProps) {
       stringProps.forEach((prop) => {
-        const [, name, value] = prop.match(/(\w+)="([^"]*)"/) || [];
-        if (name && value) {
-          props[name] = value;
+        const match = prop.match(/(\w+)="([^"]*)"/);
+        if (match) {
+          const [, name, value] = match;
+          if (name && value !== undefined) {
+            props[name] = value;
+          }
         }
       });
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface CalloutProps {
-  message: string;
+  message?: string;
   icon?: React.ReactNode;
   variant?: 'default' | 'danger';
 }
@@ -23,7 +23,7 @@ const Callout: React.FC<CalloutProps> = ({ message, icon, variant = 'default' })
   return (
     <div className={`flex items-center p-4 rounded-md shadow-sm ${currentStyles.container}`}>
       {icon && <div className={`mr-3 text-xl ${currentStyles.icon}`}>{icon}</div>}
-      <p>{message}</p>
+      <p>{message || "Callout message"}</p>
     </div>
   );
 };
