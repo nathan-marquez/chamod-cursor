@@ -37,17 +37,19 @@ export const components: ComponentDocProps[] = [
     description: "A component to display important messages.",
     component: (
       <div className="flex flex-col gap-4">
-        <Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
+        <Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="primary" />
         <Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />
+        <Callout message="Your call out text here" icon={<span role="img" aria-label="filled">🔳</span>} variant="filled" />
       </div>
     ),
     exampleMarkup: `
-<Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="default" />
-<Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />`,
+<Callout message="Your call out text here" icon={<span role="img" aria-label="info">ℹ️</span>} variant="primary" />
+<Callout message="Your call out text here" icon={<span role="img" aria-label="exclamation">⚠️</span>} variant="danger" />
+<Callout message="Your call out text here" icon={<span role="img" aria-label="filled">🔳</span>} variant="filled" />`,
     props: [
       { name: "message", type: "string", description: "The content of the callout message." },
       { name: "icon", type: "React.ReactNode", description: "An icon to display next to the message.", default: "undefined" },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the callout.", default: "'default'" },
+      { name: "variant", type: "'primary' | 'danger' | 'filled'", description: "The style variant of the callout.", default: "'primary'" },
     ],
   },
   {
@@ -69,16 +71,18 @@ export const components: ComponentDocProps[] = [
     description: "A small, customizable label.",
     component: (
       <div className="flex gap-2">
-        <Tag label="tags" variant="default" />
+        <Tag label="primary" variant="primary" />
         <Tag label="danger" variant="danger" />
+        <Tag label="filled" variant="filled" />
       </div>
     ),
     exampleMarkup: `
-<Tag label="tags" variant="default" />
-<Tag label="danger" variant="danger" />`,
+<Tag label="primary" variant="primary" />
+<Tag label="danger" variant="danger" />
+<Tag label="filled" variant="filled" />`,
     props: [
       { name: "label", type: "string", description: "The text displayed on the tag." },
-      { name: "variant", type: "'default' | 'danger'", description: "The style variant of the tag.", default: "'default'" },
+      { name: "variant", type: "'primary' | 'danger' | 'filled'", description: "The style variant of the tag.", default: "'primary'" },
     ],
   },
 ];
