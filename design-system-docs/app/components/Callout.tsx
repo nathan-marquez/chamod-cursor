@@ -3,18 +3,34 @@ import React from 'react';
 interface CalloutProps {
   message: string;
   icon?: React.ReactNode;
-  variant?: 'default' | 'danger';
+  variant?: 'default' | 'primary' | 'danger' | 'filled';
 }
 
 const Callout: React.FC<CalloutProps> = ({ message, icon, variant = 'default' }) => {
   const variantStyles = {
     default: {
-      container: 'bg-[#3C3C4C] text-white border border-[#4E4E5B] rounded-lg',
-      icon: 'text-[#8C8C96] bg-white rounded-full p-0.5 border border-transparent',
+      container: 'bg-gray-800 text-gray-100 border border-gray-600 rounded-lg shadow-lg',
+      icon: 'text-gray-400 bg-gray-700 rounded-full p-1',
+    },
+    primary: {
+      container: 'bg-blue-900 text-blue-100 border border-blue-600 rounded-lg shadow-lg',
+      icon: 'text-blue-400 bg-blue-800 rounded-full p-1',
+    },
+    primary: {
+      container: 'bg-blue-600 text-white border border-blue-500 rounded-lg',
+      icon: 'text-blue-200',
     },
     danger: {
-      container: 'bg-[#C62B2B] text-white border border-[#F25555] rounded-lg',
-      icon: 'text-yellow-300',
+      container: 'bg-red-900 text-red-100 border border-red-600 rounded-lg shadow-lg',
+      icon: 'text-red-400 bg-red-800 rounded-full p-1',
+    },
+    filled: {
+      container: 'bg-gray-700 text-white border border-gray-500 rounded-lg shadow-lg',
+      icon: 'text-gray-300 bg-gray-600 rounded-full p-1',
+    },
+    filled: {
+      container: 'bg-gray-700 text-white border border-gray-600 rounded-lg',
+      icon: 'text-gray-300',
     },
   };
 
